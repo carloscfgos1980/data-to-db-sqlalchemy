@@ -17,4 +17,4 @@ for table, df in dfs.items():
 wb = pd.ExcelFile('Amet_data.xlsx')
 for sheet in wb.sheet_names:
     df = pd.read_excel('Amet_data.xlsx', sheet_name=sheet)
-    df.to_sql(sheet, con=engine, index=False, if_exists="replace")
+    df.to_sql(sheet, con=engine, index=False, if_exists="append")
