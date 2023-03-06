@@ -83,6 +83,17 @@ Base.metadata.create_all(bind=engine)
 Session = sessionmaker(bind=engine)
 session = Session()
 
+# Update the data base
+x1 = session.query(Painting).get(3)
+x2 = session.query(Painting).get(4)
+x3 = session.query(Painting).get(5)
+x4 = session.query(Painting).get(6)
+
+x1.img = "./images/paintings_available/gossip.jpg"
+x2.img = "./images/paintings_available/burning.jpg"
+x3.img = "./images/paintings_available/idolatry.jpg"
+x4.img = "./images/paintings_available/bread-circus.jpg"
+session.commit()
 
 result = session.query(Painting).all()
 print(result)
@@ -109,7 +120,7 @@ for x in Checking:
 # print the objects to belon to the person and the person data with the folled example
 print('Combining tables!')
 xxx = session.query(Customer, Painting).filter(
-    Customer.paint == Painting.paint_id).filter(Painting.title == "Gossip").all()
+    Customer.paint == Painting.paint_id).filter(Painting.title == "Cuban Party").all()
 
 for r in xxx:
     print(r)
