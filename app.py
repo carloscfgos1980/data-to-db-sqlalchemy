@@ -1,8 +1,11 @@
+import pandas as pd
 from sqlalchemy import create_engine, ForeignKey, Column, String, Integer, BOOLEAN
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+import pyodbc
 
 Base = declarative_base()
+engine = create_engine("sqlite:///amet.db", echo=True)
 
 
 class Painting(Base):
@@ -82,7 +85,7 @@ Base.metadata.create_all(bind=engine)
 
 Session = sessionmaker(bind=engine)
 session = Session()
-
+'''
 # Update the data base
 x1 = session.query(Painting).get(3)
 x2 = session.query(Painting).get(4)
@@ -94,9 +97,8 @@ x2.img = "./images/paintings_available/burning.jpg"
 x3.img = "./images/paintings_available/idolatry.jpg"
 x4.img = "./images/paintings_available/bread-circus.jpg"
 session.commit()
+'''
 
-result = session.query(Painting).all()
-print(result)
 
 outcome = session.query(Painting).filter(Painting.title == 'Gossip')
 for x in outcome:

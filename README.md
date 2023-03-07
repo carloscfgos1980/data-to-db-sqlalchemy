@@ -6,11 +6,19 @@ Use <sqlite3> to convert .xlsx to SQL
 
 * check.py to fill a ORM (SQL) to an existance databe
 
-# Bug
-xxx = session.query(Customer, Painting).filter(
-    Customer.paint == Painting.paint_id).filter(Painting.title == "Gossip").all()
+# Automatic Export data into Excel from SQL using Python | Task Scheduler | Data Automation #1
+https://www.youtube.com/watch?v=CdOnfDu-3Wg
 
-for r in xxx:
-    print(r)
+pip install pyodbc
+pip install pandas
+pip install plyer
 
-* It does not resolve this. I don't know why
+
+# SQL command to retrieve data
+https://kb.iu.edu/d/ahux
+
+
+
+# Automate Excel With Python - Python Excel Tutorial (OpenPyXL)
+* Working with excel from Python
+https://www.youtube.com/watch?v=7YS6YDQKFh0
